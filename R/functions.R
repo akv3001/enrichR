@@ -15,7 +15,8 @@
 listEnrichrDbs <- function() {
     dfSAF <- options()$stringsAsFactors
     options(stringsAsFactors = FALSE)
-    dbs <- GET(url="http://amp.pharm.mssm.edu/Enrichr/datasetStatistics")$content
+    #dbs <- GET(url="http://amp.pharm.mssm.edu/Enrichr/datasetStatistics")$content
+    dbs <- GET(url="https://amp.pharm.mssm.edu/Enrichr3/datasetStatistics")$content
     dbs <- intToUtf8(dbs)
     dbs <- fromJSON(dbs)
     dbs <- lapply(dbs$statistics, function(x) do.call(cbind.data.frame, x))
